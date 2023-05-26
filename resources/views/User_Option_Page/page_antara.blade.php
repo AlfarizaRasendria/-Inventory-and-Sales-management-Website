@@ -12,13 +12,13 @@
 
 <body class="d-flex flex-column vh-100" style="background-color: #e5e5e5">
   <div class="container-fluid d-flex flex-column justify-content-center align-items-center vh-100">
-    <form action="Admin_Login" class="w-100 d-flex justify-content-center align-items-center">
+    <form action="/login" class="w-100 d-flex justify-content-center align-items-center">
       <button id="Login-button" type="submit" class="btn btn-primary w-50 fw-semibold">
         Login As Admin
       </button type="submit">
     </form>
 
-    <form action="Staff_Login" class="w-100 d-flex justify-content-center align-items-center">
+    <form action="/loginStaff" class="w-100 d-flex justify-content-center align-items-center">
     <button id="Login-button" type="submit" class="btn btn-primary w-50 fw-semibold mt-5">
         Login As Staff
     </button>

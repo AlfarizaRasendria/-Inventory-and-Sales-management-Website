@@ -1,11 +1,12 @@
 <?php
 
+use App\Models\Supplier;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BarangController;
-use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\SupplierController;
-use App\Models\Supplier;
+use App\Http\Controllers\PenjualanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,10 +50,11 @@ Route::get('/Register_Page', function(){
 
 
 
-Route::group(['middleware' => ['auth','hakakses:admin']],function(){
-    Route::get('/Admin_Dashboard', function(){
-        return view('Admin_Page.Admin_Dashboard');
-    });
+// Route::group(['middleware' => ['auth']],function(){
+// });
+
+Route::get('/Admin_Dashboard', function(){
+    return view('Admin_Page.Admin_Dashboard');
 });
 
 //Create for table penjualan
@@ -120,6 +122,18 @@ Route::post('/updatebarang/{id}',[BarangController::class,'update'])->name('Upda
 Route::get('/tampilkansupplier/{id}',[SupplierController::class,'show'])->name('tampilkansupplier');
 Route::get('/Hapussupplier/{id}',[SupplierController::class,'destroy'])->name('Hapussupplier');
 Route::post('/updatesupplier/{id}',[SupplierController::class,'update'])->name('Updatesupplier');
+
+
+ Route::get('/login',[LoginController::class,'Login'])->name('AdminLogin');
+ Route::post('/loginprocess',[LoginController::class,'loginAttempt'])->name('AdminLoginPost');
+
+ Route::get('/register',[LoginController::class,'Register'])->name('AdminRegister');
+ Route::post('/registerAdmin',[LoginController::class,'registeruser'])->name('AdminRegisterPost');
+
+
+ Route::get('/loginStaff',[LoginController::class,'StaffLogin'])->name('StaffLogin');
+
+
 
 
 
